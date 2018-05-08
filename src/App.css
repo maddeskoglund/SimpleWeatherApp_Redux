@@ -1,0 +1,120 @@
+
+
+.header {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+}
+
+.place {
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+} 
+
+.date {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.weatherinfo {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+/****** Day ********/
+.tempnow {
+  font-size: 120px;
+  font-weight: 100;
+}
+
+.icon-now img {
+width: 100px;
+}
+
+
+/******* FutureDay ***********/
+
+.temphighlow-futureday {
+  font-size: 50px;
+}
+
+
+
+/***** MENU *******/
+
+.menu {
+  position: absolute;
+  top: 0px;
+}
+
+.bm-burger-button {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  margin-right:10px;
+  width: 40px;
+  height: 40px;
+}
+
+.bm-cross-button {
+  left:0;
+  margin-left:10px;
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: white;
+}
+
+.bm-menu {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5em 0.5em 0;
+  font-size: 1.15em;
+  
+}
+
+.bm-item-list {
+  color: #b8b7ad;
+  text-align: center;
+}
+
+/* .bm-overlay {
+  background: rgba(0, 0, 0, 0.5);
+} */
+
+a {
+  text-decoration: none;
+  color:white;
+}
+
+.dag {
+  text-transform: uppercase;
+  font-size:1em;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.icon-menu img {
+  width: 100px;
+}
+
+.temp-menu {
+  font-size: 0.7em;
+  margin-top:10px;
+  margin-bottom: 50px;
+}
+
+/********** Background **************/
+.background img {
+  max-width: 100%; 
+  max-height:100%;
+  overflow: hidden;
+  margin:0;
+  padding:0;
+  /* background-position: center center; */
+  background-size: cover;
+  /* position: relative; */
+}
