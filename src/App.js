@@ -6,9 +6,18 @@ import FutureDay from './components/FutureDay';
 import Sidebar from './components/Menu';
 
 import store from './store';
+import weatherReducer from './reducers/weatherReducers';
+
+
 
 class App extends Component {
+
+  // componentDidMount() {
+  //   this.props.dispatch(weatherReducer());
+  // }
+
   render() {
+
     return (
       <Provider store={store}>
         <BrowserRouter>

@@ -9,7 +9,7 @@ export const fetchWeather = () => dispatch => {
     const url = (`https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`);
     fetch(url)
         .then(response => response.json())
-        .then((data) => dispatch({
+        .then(data => dispatch({
             type: FETCH_WEATHER,
             payload: {
                 today: {

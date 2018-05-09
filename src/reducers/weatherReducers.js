@@ -2,30 +2,30 @@ import { FETCH_WEATHER } from '../actions/types';
 
 const initialState = {
     today: {
-        icon: [],
-        tempNow: [],
-        tempMax: [],
-        tempMin: [],
-        rain: [],
-        wind: []
+        icon: "Hämtar",
+        tempNow: "Hämtar",
+        tempMax: "Hämtar",
+        tempMin: "Hämtar",
+        rain: "Hämtar",
+        wind: "Hämtar"
     },
     tomorrow: {
-        icon: [],
-        tempMax: [],
-        tempMin: [],
-        rain: [],
-        wind: []
+        icon: "Hämtar",
+        tempMax: "Hämtar",
+        tempMin: "Hämtar",
+        rain: "Hämtar",
+        wind: "Hämtar"
     },
     tomorrowPlus1: {
-        icon: [],
-        tempMax: [],
-        tempMin: [],
-        rain: [],
-        wind: []
+        icon: "Hämtar",
+        tempMax: "Hämtar",
+        tempMin: "Hämtar",
+        rain: "Hämtar",
+        wind: "Hämtar"
     }
 }
 
-export default function (state = initialState, action) {
+export default function weatherReducer(state = initialState, action) {
     switch (action.type) {
         case FETCH_WEATHER:
             return {
