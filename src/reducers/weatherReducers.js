@@ -2,6 +2,7 @@ import { FETCH_WEATHER } from '../actions/types';
 
 const initialState = {
     today: {
+        iconNow: "Hämtar",
         icon: "Hämtar",
         tempNow: "Hämtar",
         tempMax: "Hämtar",

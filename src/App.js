@@ -6,15 +6,13 @@ import FutureDay from './components/FutureDay';
 import Sidebar from './components/Menu';
 
 import store from './store';
-import weatherReducer from './reducers/weatherReducers';
+// import weatherReducer from './reducers/weatherReducers';
+// import { connect } from 'react-redux';
+// import { fetchWeather } from './actions/weatheractions';
 
 
 
 class App extends Component {
-
-  // componentDidMount() {
-  //   this.props.dispatch(weatherReducer());
-  // }
 
   render() {
 
@@ -22,6 +20,7 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <div>
+            {/* <p>{this.props.weather.today.tempNow}</p> */}
             <Route path='/' component={Day} />
             <Route path='/' component={FutureDay} />
           </div>
@@ -31,7 +30,11 @@ class App extends Component {
   }
 }
 
+
+
 export default App;
+
+
 
 
 

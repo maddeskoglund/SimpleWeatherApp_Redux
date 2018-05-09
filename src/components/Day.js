@@ -10,25 +10,30 @@ class Day extends Component {
     componentWillMount() {
         this.props.fetchWeather();
     }
-    render() {
 
+    render() {
         return (
             <div>
-                <h1>{this.props.weather.icon}</h1>
+                <h1>{this.props.weather.today.tempNow}Tempnow</h1>
             </div>
         )
     }
 }
 
+
+
+
 const mapStateToProps = state => ({
-    weather: state.weather.today
-
-
+    weather: state.weather
 })
 
 export default connect(mapStateToProps, { fetchWeather })(Day);
 
-//tror att null ska vara mapStateToProps!!!!!!
+
+
+
+
+
 
 
 

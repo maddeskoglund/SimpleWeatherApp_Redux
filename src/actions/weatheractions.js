@@ -13,7 +13,8 @@ export const fetchWeather = () => dispatch => {
             type: FETCH_WEATHER,
             payload: {
                 today: {
-                    icon: data.timeSeries[0].parameters.filter(element => element.name === 'Wsymb2')[0].values[0],
+                    iconNow: data.timeSeries[0].parameters.filter(element => element.name === 'Wsymb2')[0].values[0],
+                    icon: [],
                     tempNow: data.timeSeries[0].parameters.filter(element => element.name === 't')[0].values[0],
                     tempMax: [],
                     tempMin: [],
