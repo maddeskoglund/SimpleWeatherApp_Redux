@@ -1,21 +1,26 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actionCreators from '../actions/weatheractions';
-import Main from './components/Main';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Day from './components/Day';
+import FutureDay from './components/FutureDay';
+import Sidebar from './components/Menu';
 
-function mapStateToProps(state) {
-  return {
-    //Här ska jag ha nåt
+import store from './store';
 
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <div>
+            <Route path='/' component={Day} />
+            <Route path='/' component={FutureDay} />
+          </div>
+        </BrowserRouter>
+      </Provider>
+    )
   }
 }
-
-function mapDispachToProps(dispatch) {
-  return
-  //Här ska jag ha nåt
-}
-
-const App = connect(mapStateToProps, mapDispachToProps)(Main)
 
 export default App;
 

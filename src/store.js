@@ -1,30 +1,17 @@
-import { createStore, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers/index';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { browserHistory } from 'react-router';
-import applyMiddleware from 'redux-thunk';
+import rootReducer from './reducers';
 
-//WES Här ska jag importera datan!!!!!!!!!!!
-// // import comments from './ data/comments
-
-
-//WEES Tror inte jag ska ha den här.
-// const defaultState = {
-//     posts,
-//     comments
-// };
-
-const initialState = {}; //Ska denna vara här???? 
-
+const initialState = {};
 const middleware = [thunk];
 
 const store = createStore(
     rootReducer,
     initialState,
-    applyMiddleware(...middleware));
-
-export const history = syncHistoryWithStore(browserHistory, store);
-
+    compose(
+        applyMiddleware(...middleware),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
+);
 
 export default store;

@@ -30,7 +30,7 @@ export default function (state = initialState, action) {
         case FETCH_WEATHER:
             return {
                 ...state,
-                items: action.payload
+                today: action.payload
             }
         default:
             return state;
