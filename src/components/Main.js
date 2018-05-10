@@ -1,15 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { Component } from 'react';
+import Sidebar from './Menu';
 
-const Main = React.createClass({
+class Main extends Component {
     render() {
+
+
+
+
         return (
             <div>
+                <Sidebar />
                 Main
                 //Här kan sidebaren ligga
+                {/* {React.cloneElement({ ...this.props }.children, { ...this.props })} */}
+
             </div>
         )
     }
-});
+};
 
 export default Main;

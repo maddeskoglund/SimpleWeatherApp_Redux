@@ -1,39 +1,24 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Day from './components/Day';
-import FutureDay from './components/FutureDay';
-import Sidebar from './components/Menu';
 
-import store from './store';
-// import weatherReducer from './reducers/weatherReducers';
-// import { connect } from 'react-redux';
-// import { fetchWeather } from './actions/weatheractions';
+import { connect } from 'react-redux';
+import { fetchWeather } from './actions/weatheractions';
+import Main from './components/Main'
 
 
 
-class App extends Component {
-
-  render() {
-
-    return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <div>
-            {/* <p>{this.props.weather.today.tempNow}</p> */}
-            <Route path='/' component={Day} />
-            <Route path='/' component={FutureDay} />
-          </div>
-        </BrowserRouter>
-      </Provider>
-    )
-  }
-}
+// componentWillMount() {
+//   this.props.fetchWeather();
+// }
 
 
+
+const mapStateToProps = state => ({
+  weather: state.weather
+})
+
+const App = connect(mapStateToProps, { fetchWeather })(Main);
 
 export default App;
-
 
 
 
