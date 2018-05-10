@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import ArrowUp from "react-icons/lib/fa/long-arrow-up";
 import ArrowDown from "react-icons/lib/fa/long-arrow-down";
-
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchWeather } from '../actions/weatheractions';
+import * as actionCreators from '../actions/weatheractions';
 
 
 class Day extends Component {
@@ -11,7 +11,10 @@ class Day extends Component {
         this.props.fetchWeather();
     }
 
+
     render() {
+        console.log(this.props.weather.today.tempNow);
+        // const tempNow = { this.props.weather.today.tempNow }
         return (
             <div>
                 <h1>{this.props.weather.today.tempNow}Tempnow</h1>
@@ -21,13 +24,19 @@ class Day extends Component {
 }
 
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actionCreators, dispatch);
+}
+
+function mapStateToProps(state) {
+    return {
+        weather: state.weather
+    }
+}
 
 
-const mapStateToProps = state => ({
-    weather: state.weather
-})
 
-export default connect(mapStateToProps, { fetchWeather })(Day);
+export default connect(mapStateToProps, mapDispatchToProps)(Day);
 
 
 

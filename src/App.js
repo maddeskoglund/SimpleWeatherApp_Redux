@@ -18,6 +18,8 @@ const mapStateToProps = state => ({
 
 const App = connect(mapStateToProps, { fetchWeather })(Main);
 
+
+
 export default App;
 
 

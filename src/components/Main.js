@@ -12,7 +12,7 @@ class Main extends Component {
                 <Sidebar />
                 Main
                 //Här kan sidebaren ligga
-                {/* {React.cloneElement({ ...this.props }.children, { ...this.props })} */}
+                {/* <div>{React.cloneElement({ ...this.props }.children, { ...this.props })}</div> */}
 
             </div>
         )
