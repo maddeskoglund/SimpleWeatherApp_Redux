@@ -13,11 +13,11 @@ class Day extends Component {
 
 
     render() {
-        console.log(this.props.weather.today.tempNow);
-        // const tempNow = { this.props.weather.today.tempNow }
+        console.log(this.props.data.weather.today.iconNow);
+        const tempNow =  this.props.data.weather.today.tempNow 
         return (
             <div>
-                <h1>{this.props.weather.today.tempNow}Tempnow</h1>
+                <h1>{tempNow} Tempnow</h1>
             </div>
         )
     }
@@ -30,7 +30,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        weather: state.weather
+        data: state.weather,
     }
 }
 

@@ -1,6 +1,7 @@
 import { FETCH_WEATHER } from '../actions/types';
 
 const initialState = {
+    weather: {
     today: {
         iconNow: "Hämtar",
         icon: "Hämtar",
@@ -25,15 +26,13 @@ const initialState = {
         wind: "Hämtar"
     }
 }
+}
 
 export default function weatherReducer(state = initialState, action) {
     switch (action.type) {
         case FETCH_WEATHER:
             return {
-                ...state,
-                today: action.payload,
-                tomorrow: action.payload,
-                tomorrowPlus1: action.payload
+                weather: action.payload
             }
         default:
             return state;
