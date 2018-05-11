@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import Arrow from "react-icons/lib/ti/arrow-forward";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/weatheractions';
+
 
 
 class Sidebar extends Component {
+    componentDidMount() {
+        this.props.fetchWeather();
+    }
+
     showSettings(event) {
         event.preventDefault();
         // .
@@ -13,6 +21,16 @@ class Sidebar extends Component {
     }
 
     render() {
+        const iconToday = this.props.data.weather.today.icon;
+        const iconTomorrow = this.props.data.weather.tomorrow.icon;
+        const iconTomorrowPlus1 = this.props.data.weather.tomorrowPlus1.icon;
+        const TodayTempMax = this.props.data.weather.today.tempMax;
+        const TodayTempMin = this.props.data.weather.today.tempMin;
+        const TomorrowTempMax = this.props.data.weather.tomorrow.tempMax;
+        const TomorrowTempMin = this.props.data.weather.tomorrow.tempMin;
+        const TomorrowPlus1TempMax = this.props.data.weather.tomorrowPlus1.tempMax;
+        const TomorrowPlus1TempMin = this.props.data.weather.tomorrowPlus1.tempMin;
+
         const Icons = [
             "",
             "sun.png",
@@ -43,9 +61,10 @@ class Sidebar extends Component {
             "snow.png",
             "snow.png"
         ];
-        const IconToday = "images/" + Icons[this.props.TodayIcon];
-        const IconTomorrow = "images/" + Icons[this.props.TomorrowIcon];
-        const IconTomorrowPlus1 = "images/" + Icons[this.props.TomorrowPlus1Icon];
+        const IconToday = "images/" + Icons[iconToday];
+        const IconTomorrow = "images/" + Icons[iconTomorrow];
+        const IconTomorrowPlus1 = "images/" + Icons[iconTomorrowPlus1];
+
 
 
         return (
@@ -53,27 +72,36 @@ class Sidebar extends Component {
             <Menu right={true} width={170} className='menu' customBurgerIcon={<Arrow />}>
                 <Link to='/'><p className='dag'>Idag</p>
                     <div className='icon-menu'><img src={IconToday} alt="" /></div>
-                    <p className='temp-menu'> {this.props.TodayTempMax}° /  {this.props.TodayTempMin}°</p>
+                    <p className='temp-menu'> {TodayTempMax}° /  {TodayTempMin}°</p>
                 </Link>
                 <Link to='/tomorrow'><p className='dag'>Imorgon</p>
                     <div className='icon-menu'><img src={IconTomorrow} alt="" /></div>
-                    <p className='temp-menu'> {this.props.TomorrowTempMax}° /  {this.props.TomorrowTempMin}°</p>
+                    <p className='temp-menu'> {TomorrowTempMax}° /  {TomorrowTempMin}°</p>
                 </Link>
                 <Link to='/tomorrowPlus1'><p className='dag'>Övermorgon</p>
                     <div className='icon-menu'><img src={IconTomorrowPlus1} alt="" /></div>
-                    <p className='temp-menu'> {this.props.TomorrowPlus1TempMax}° /  {this.props.TomorrowPlus1TempMin}°</p>
+                    <p className='temp-menu'> {TomorrowPlus1TempMax}° /  {TomorrowPlus1TempMin}°</p>
                 </Link>
-
-
-                {/* <a id="today" className="menu-item" href="/">Idag</a>
-                <a id="tomorrow" className="menu-item" href="/about">Imorgon</a>
-                <a id="contact" className="menu-item" href="/contact">Övermorgon</a> */}
-                {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
             </Menu>
         );
     }
 }
 
-export default Sidebar;
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actionCreators, dispatch);
+}
+
+function mapStateToProps(state) {
+    return {
+        data: state.weather,
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+
+
+
+
+
 
 //https://github.com/negomi/react-burger-menu

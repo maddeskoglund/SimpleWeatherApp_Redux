@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Day from './components/Day';
 import FutureDay from './components/FutureDay';
-import Sidebar from './components/Menu';
+import css from './App.css'
 
 import store from './store';
 
@@ -15,8 +15,8 @@ const router = (
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                <Route path='/' component={App} />
-                <Route component={Day} > </Route>
+                <Route path='/' component={Day} />
+                <Route component={App} > </Route>
                 <Route path='/tomorrow' component={FutureDay} />
                 <Route path='/tomorrowPlus1' component={FutureDay} />
             </div>

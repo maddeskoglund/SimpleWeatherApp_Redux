@@ -160,6 +160,7 @@ export const fetchWeather = () => dispatch => {
                 type: FETCH_WEATHER,
                 payload: {
                     today: {
+                        date: todayDatumStr,
                         iconNow: iconNow,
                         icon: mostCommonIconToday,
                         tempNow: tempNow,
@@ -169,6 +170,7 @@ export const fetchWeather = () => dispatch => {
                         wind: avTodayWind
                     },
                     tomorrow: {
+                        date: tomorrowDatumStr,
                         icon: mostCommonIconTomorrow,
                         tempMax: tomorrowTempMax,
                         tempMin: tomorrowTempMin,
@@ -176,6 +178,7 @@ export const fetchWeather = () => dispatch => {
                         wind: avTomorrowWind
                     },
                     tomorrowPlus1: {
+                        date: tomorrowPlus1DatumStr,
                         icon: mostCommonIconTomorrowPlus1,
                         tempMax: tomorrowPlus1TempMax,
                         tempMin: tomorrowPlus1TempMin,

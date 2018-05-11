@@ -7,26 +7,67 @@ import * as actionCreators from '../actions/weatheractions';
 
 
 class Day extends Component {
-    // componentDidMount() {
-    //     this.props.fetchWeather();
-    // }
+    componentDidMount() {
+        this.props.fetchWeather();
+    }
 
 
     render() {
-<<<<<<< HEAD
-        console.log(this.props.weather);
-        console.log(this.props.weather.today.iconNow);
-        // const tempNow = { this.props.weather.today.tempNow }
+        const tempNow = this.props.data.weather.today.tempNow;
+        const iconNow = this.props.data.weather.today.iconNow;
+        const tempMax = this.props.data.weather.today.tempMax;
+        const tempMin = this.props.data.weather.today.tempMin;
+        const wind = this.props.data.weather.today.wind;
+        const rain = this.props.data.weather.today.rain;
+        const date = this.props.data.weather.today.date;
+        // const rain = this.props.data.weather.today.rain;
+
+        const Icons = [
+            "",
+            "sun.png",
+            "sun.png",
+            "suncloud.png",
+            "suncloud.png",
+            "cloud.png",
+            "cloud.png",
+            "cloud.png",
+            "rain.png",
+            "rain.png",
+            "rain.png",
+            "thunder.png",
+            "rain.png",
+            "rain.png",
+            "rain.png",
+            "snow.png",
+            "snow.png",
+            "snow.png",
+            "rain.png",
+            "rain.png",
+            "rain.png",
+            "thunder.png",
+            "rain.png",
+            "rain.png",
+            "rain.png",
+            "snow.png",
+            "snow.png",
+            "snow.png"
+        ];
+        const IconNow = "images/" + Icons[iconNow];
+
         return (
             <div>
-                <h1>{this.props.weather.today.iconNow}Tempnow</h1>
-=======
-        console.log(this.props.data.weather.today.iconNow);
-        const tempNow =  this.props.data.weather.today.tempNow 
-        return (
-            <div>
-                <h1>{tempNow} Tempnow</h1>
->>>>>>> db47be928a3d9fa6b56bb1315bdebae26e334969
+                <div className="header">
+                    <div className="place">Enköping</div>
+                    <div className="date">{date}</div>
+                </div>
+                <div className="weatherinfo">
+                    <div className='icon-now'><img src={IconNow} alt="" /></div>
+                    <div className="tempnow">{tempNow}°</div>
+                    <div className="temphighlow">
+                        <ArrowUp /> {tempMax}° <ArrowDown /> {tempMin}°</div>
+                    <div className="wind">Vindstyrka: {wind} m/s</div>
+                    <div className="rain">Nederbörd: {rain} mm</div>
+                </div>
             </div>
         )
     }
