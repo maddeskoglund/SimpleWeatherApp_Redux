@@ -31,7 +31,9 @@ export default function weatherReducer(state = initialState, action) {
         case FETCH_WEATHER:
             return {
                 ...state,
-                today: action.payload
+                today: action.payload,
+                tomorrow: action.payload,
+                tomorrowPlus1: action.payload
             }
         default:
             return state;

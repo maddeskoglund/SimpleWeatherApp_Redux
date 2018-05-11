@@ -7,7 +7,7 @@ import * as actionCreators from '../actions/weatheractions';
 
 
 class Day extends Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchWeather();
     }
 
