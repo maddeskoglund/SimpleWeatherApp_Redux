@@ -22,35 +22,79 @@ export const fetchWeather = () => dispatch => {
     const url = (`https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`);
     fetch(url)
         .then(response => response.json())
-        .then(data => dispatch({
-            type: FETCH_WEATHER,
-            payload: {
-                today: {
-                    iconNow: data.timeSeries[0].parameters.filter(element => element.name === 'Wsymb2')[0].values[0],
-                    icon: [],
-                    tempNow: data.timeSeries[0].parameters.filter(element => element.name === 't')[0].values[0],
-                    // tempMax: (data.timeSeries.validTime.startsWith({ todayStr })) ? data.timeSeries.parameters.filter(element => element.name === "t") : null,
-                    tempMax: data.timeSeries.map(parameters.filter(element => element.name === "t")),
-                    tempMin: [],
-                    rain: [],
-                    wind: []
-                },
-                tomorrow: {
-                    icon: [],
-                    tempMax: [],
-                    tempMin: [],
-                    rain: [],
-                    wind: []
-                },
-                tomorrowPlus1: {
-                    icon: [],
-                    tempMax: [],
-                    tempMin: [],
-                    rain: [],
-                    wind: []
+        .then(data =>
+
+            data.timeSeries.map(listItem => {
+                const { validTime, parameters } = listItem;
+                // Temp
+                let temperature = parameters.filter(element => {
+                    return element.name === "t";
+                })[0].values[0];
+
+                let rainfall = parameters.filter(element => {
+                    return element.name === "pmean";
+                })[0].values[0];
+
+                // Wind
+                let windspeed = parameters.filter(element => {
+                    return element.name === "ws";
+                })[0].values[0];
+
+                let icon = parameters.filter(element => {
+                    return element.name === "Wsymb2";
+                })[0].values[0];
+
+                /***** ska detta vara med, kan man ha push? */
+                if (validTime.startsWith(todayStr)) {
+                    todayTemp.push(temperature);
+                    todayRain.push(rainfall);
+                    todayWind.push(windspeed);
+                    todayIcon.push(icon);
+                } else if (validTime.startsWith(tomorrowStr)) {
+                    tomorrowTemp.push(temperature);
+                    tomorrowRain.push(rainfall);
+                    tomorrowWind.push(windspeed);
+                    tomorrowIcon.push(icon);
+                } else if (validTime.startsWith(tomorrowPlus1Str)) {
+                    tomorrowPlus1Temp.push(temperature);
+                    tomorrowPlus1Rain.push(rainfall);
+                    tomorrowPlus1Wind.push(windspeed);
+                    tomorrowPlus1Icon.push(icon);
                 }
-            }
-        })
+            }),
+
+
+
+            dispatch({
+                type: FETCH_WEATHER,
+                payload: {
+                    today: {
+                        iconNow: data.timeSeries[0].parameters.filter(element => element.name === 'Wsymb2')[0].values[0],
+                        icon: [],
+                        tempNow: data.timeSeries[0].parameters.filter(element => element.name === 't')[0].values[0],
+
+                        // tempMax: validTime.startsWith(todayDatumStr),
+
+                        tempMin: [],
+                        rain: [],
+                        wind: []
+                    },
+                    tomorrow: {
+                        icon: [],
+                        tempMax: [],
+                        tempMin: [],
+                        rain: [],
+                        wind: []
+                    },
+                    tomorrowPlus1: {
+                        icon: [],
+                        tempMax: [],
+                        tempMin: [],
+                        rain: [],
+                        wind: []
+                    }
+                }
+            })
         )
 }
 
