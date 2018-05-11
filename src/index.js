@@ -15,14 +15,13 @@ const router = (
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                {/* <p>{this.props.weather.today.tempNow}</p> */}
                 <Route path='/' component={App} />
-                <Route path='/' component={Day} />
+                <Route component={Day} > </Route>
                 <Route path='/tomorrow' component={FutureDay} />
                 <Route path='/tomorrowPlus1' component={FutureDay} />
             </div>
         </BrowserRouter>
-    </Provider>
+    </Provider >
 )
 
 

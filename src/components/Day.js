@@ -7,17 +7,18 @@ import * as actionCreators from '../actions/weatheractions';
 
 
 class Day extends Component {
-    componentDidMount() {
-        this.props.fetchWeather();
-    }
+    // componentDidMount() {
+    //     this.props.fetchWeather();
+    // }
 
 
     render() {
-        console.log(this.props.weather.today.tempNow);
+        console.log(this.props.weather);
+        console.log(this.props.weather.today.iconNow);
         // const tempNow = { this.props.weather.today.tempNow }
         return (
             <div>
-                <h1>{this.props.weather.today.tempNow}Tempnow</h1>
+                <h1>{this.props.weather.today.iconNow}Tempnow</h1>
             </div>
         )
     }
@@ -33,8 +34,6 @@ function mapStateToProps(state) {
         weather: state.weather
     }
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Day);
 

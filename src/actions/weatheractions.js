@@ -156,9 +156,6 @@ export const fetchWeather = () => dispatch => {
                 h = 0;
             }
 
-
-
-
             dispatch({
                 type: FETCH_WEATHER,
                 payload: {
