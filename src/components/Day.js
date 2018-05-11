@@ -13,12 +13,20 @@ class Day extends Component {
 
 
     render() {
+<<<<<<< HEAD
         console.log(this.props.weather);
         console.log(this.props.weather.today.iconNow);
         // const tempNow = { this.props.weather.today.tempNow }
         return (
             <div>
                 <h1>{this.props.weather.today.iconNow}Tempnow</h1>
+=======
+        console.log(this.props.data.weather.today.iconNow);
+        const tempNow =  this.props.data.weather.today.tempNow 
+        return (
+            <div>
+                <h1>{tempNow} Tempnow</h1>
+>>>>>>> db47be928a3d9fa6b56bb1315bdebae26e334969
             </div>
         )
     }
@@ -31,7 +39,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        weather: state.weather
+        data: state.weather,
     }
 }
 
