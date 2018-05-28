@@ -6,13 +6,10 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../actions/weatheractions';
 import { Link } from 'react-router-dom';
 
-
-
 class FutureDay extends Component {
     componentDidMount() {
         this.props.fetchWeather();
     }
-
 
     render() {
         const tomorrowicon = this.props.data.weather.tomorrow.iconNow;
@@ -64,7 +61,7 @@ class FutureDay extends Component {
 
         return (
             <div>
-                <Link to='/tomorrow'>
+                <Link to="/tomorrow" >
                     <div className="header">
                         <div className="place">Enköping</div>
                         <div className="date">{tomorrowdate}</div>
@@ -78,7 +75,7 @@ class FutureDay extends Component {
                         <div className="rain">Nederbörd: {tomorrowrain} mm</div>
                     </div>
                 </Link>
-                <Link to='/tomorrowPlus1'>
+                <Link to="/tomorrowPlus1" >
                     <div className="header">
                         <div className="place">Enköping</div>
                         <div className="date">{tomorrowPlus1date}</div>

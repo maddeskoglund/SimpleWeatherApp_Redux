@@ -74,11 +74,11 @@ class Sidebar extends Component {
                     <div className='icon-menu'><img src={IconToday} alt="" /></div>
                     <p className='temp-menu'> {TodayTempMax}° /  {TodayTempMin}°</p>
                 </Link>
-                <Link to='/tomorrow'><p className='dag'>Imorgon</p>
+                <Link to="/tomorrow"><p className='dag'>Imorgon</p>
                     <div className='icon-menu'><img src={IconTomorrow} alt="" /></div>
                     <p className='temp-menu'> {TomorrowTempMax}° /  {TomorrowTempMin}°</p>
                 </Link>
-                <Link to='/tomorrowPlus1'><p className='dag'>Övermorgon</p>
+                <Link to="/tomorrowPlus1"><p className='dag'>Övermorgon</p>
                     <div className='icon-menu'><img src={IconTomorrowPlus1} alt="" /></div>
                     <p className='temp-menu'> {TomorrowPlus1TempMax}° /  {TomorrowPlus1TempMin}°</p>
                 </Link>
