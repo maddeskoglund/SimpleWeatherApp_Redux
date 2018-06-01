@@ -6,25 +6,18 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../actions/weatheractions';
 import { Link } from 'react-router-dom';
 
-class FutureDay extends Component {
+class Tomorrow extends Component {
     componentDidMount() {
         this.props.fetchWeather();
     }
 
     render() {
-        const tomorrowicon = this.props.data.weather.tomorrow.iconNow;
+        const tomorrowicon = this.props.data.weather.tomorrow.icon;
         const tomorrowtempMax = this.props.data.weather.tomorrow.tempMax;
         const tomorrowtempMin = this.props.data.weather.tomorrow.tempMin;
         const tomorrowwind = this.props.data.weather.tomorrow.wind;
         const tomorrowrain = this.props.data.weather.tomorrow.rain;
         const tomorrowdate = this.props.data.weather.tomorrow.date;
-        const tomorrowPlus1icon = this.props.data.weather.tomorrowPlus1.iconNow;
-        const tomorrowPlus1tempMax = this.props.data.weather.tomorrowPlus1.tempMax;
-        const tomorrowPlus1tempMin = this.props.data.weather.tomorrowPlus1.tempMin;
-        const tomorrowPlus1wind = this.props.data.weather.tomorrowPlus1.wind;
-        const tomorrowPlus1rain = this.props.data.weather.tomorrowPlus1.rain;
-        const tomorrowPlus1date = this.props.data.weather.tomorrowPlus1.date;
-
 
         const Icons = [
             "",
@@ -57,7 +50,6 @@ class FutureDay extends Component {
             "snow.png"
         ];
         const tomorrowIcon = "images/" + Icons[tomorrowicon];
-        const tomorrowPlus1Icon = "images/" + Icons[tomorrowPlus1icon];
 
         return (
             <div>
@@ -68,25 +60,12 @@ class FutureDay extends Component {
                     </div>
                     <div className="weatherinfo">
                         <div className='icon-now'><img src={tomorrowIcon} alt="" /></div>
+                        <div className="kindofday">Imorgon</div>
                         <div className="temphighlow-futureday">
                             {tomorrowtempMax}° / {tomorrowtempMin}°
                         </div>
                         <div className="wind">Vindstyrka: {tomorrowwind} m/s</div>
                         <div className="rain">Nederbörd: {tomorrowrain} mm</div>
-                    </div>
-                </Link>
-                <Link to="/tomorrowPlus1" >
-                    <div className="header">
-                        <div className="place">Enköping</div>
-                        <div className="date">{tomorrowPlus1date}</div>
-                    </div>
-                    <div className="weatherinfo">
-                        <div className='icon-now'><img src={tomorrowPlus1Icon} alt="" /></div>
-                        <div className="temphighlow-futureday">
-                            {tomorrowPlus1tempMax}° / {tomorrowPlus1tempMin}°
-                        </div>
-                        <div className="wind">Vindstyrka: {tomorrowPlus1wind} m/s</div>
-                        <div className="rain">Nederbörd: {tomorrowPlus1rain} mm</div>
                     </div>
                 </Link>
             </div >
@@ -106,7 +85,7 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FutureDay);
+export default connect(mapStateToProps, mapDispatchToProps)(Tomorrow);
 
 
 

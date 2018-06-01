@@ -12,6 +12,11 @@
   text-transform: uppercase;
 } 
 
+.kindofday {
+  font-size: 25px;
+  text-transform: uppercase;
+} 
+
 .date {
   text-align: center;
   margin-top: 10px;

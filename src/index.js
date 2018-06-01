@@ -7,21 +7,25 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Switch } from 'react-router';
 import Day from './components/Day';
-import FutureDay from './components/FutureDay';
+import Tomorrow from './components/Tomorrow';
+import Overmorgon from './components/Overmorgon';
+// import FutureDay from './components/FutureDay';
 import css from './App.css'
 import store from './store';
 
 const router = (
     <Provider store={store}>
         <BrowserRouter>
-            <Switch>
-                <div>
-                    <Route component={App} > </Route>
+
+            <div>
+                <App />
+                <Switch>
                     <Route exact path='/' component={Day} />
-                    <Route path="/tomorrow" component={FutureDay} />
-                    <Route path="/tomorrowPlus1" component={FutureDay} />
-                </div>
-            </Switch>
+                    <Route path="/tomorrow" component={Tomorrow} />
+                    <Route path="/tomorrowPlus1" component={Overmorgon} />
+                </Switch>
+            </div>
+
         </BrowserRouter>
     </Provider >
 )
